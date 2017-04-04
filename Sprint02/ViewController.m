@@ -7,16 +7,61 @@
 //
 
 #import "ViewController.h"
+#import "UITaTableViewCell.h"
+#import "AppInfo.h"
 
 @interface ViewController ()
-
+{
+    NSURLSession *session;
+    NSMutableArray *tableData;
+}
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+}
+-(void) reloadDataFromNet
+{
+    NSURL *url = [NSURL URLWithString:@"https://www.ralfebert.de/examples/fruits.json"];
+    [[session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error){
+            NSLog(@"Not load data(error)");
+        }else{
+            NSArray *arr = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            NSMutableArray *appArr = [NSMutableArray new];
+            for (NSDictionary *dic in arr) {
+                [appArr addObject:[[AppInfo alloc]initWithDictionary:dic]];
+            }
+            tableData = appArr;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        };
+    }]resume];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    AppInfo *info = tableData[indexPath.row];
+    cell.title.text = info.title;
+    cell.subtitle.text = info.subtitle;
+    return  cell;
+}
+- (IBAction)ReloadDataFromTable:(id)sender {
+    [self reloadDataFromNet];
 }
 
 - (void)didReceiveMemoryWarning {
