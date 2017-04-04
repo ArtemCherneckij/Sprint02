@@ -9,11 +9,13 @@
 #import "ViewController.h"
 #import "UITaTableViewCell.h"
 #import "AppInfo.h"
+#import "DetailViewController.h"
 
 @interface ViewController ()
 {
     NSURLSession *session;
-    NSMutableArray *tableData;
+    NSArray *tableData;
+    NSMutableArray *array;
 }
 @end
 
@@ -22,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    array = [[NSMutableArray alloc]initWithObjects:@"1",@"2",@"3",@"4",nil];
+    [self reloadDataFromNet];
 }
 -(void) reloadDataFromNet
 {
@@ -36,10 +40,10 @@
                 [appArr addObject:[[AppInfo alloc]initWithDictionary:dic]];
             }
             tableData = appArr;
-            dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_sync(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
             });
-        };
+        }
     }]resume];
 }
 
@@ -62,6 +66,20 @@
 }
 - (IBAction)ReloadDataFromTable:(id)sender {
     [self reloadDataFromNet];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"showdetail"]) {
+        
+        NSIndexPath *indexPath = nil;
+        NSString *eventTitle=nil;
+        
+        indexPath =[self.tableView indexPathForSelectedRow];
+        
+        eventTitle =[array objectAtIndex:indexPath.row];
+        
+        [[segue destinationViewController] setEventName:eventTitle];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
