@@ -59,6 +59,7 @@
                                         <connections>
                                             <outlet property="subtitle" destination="GLK-VQ-HDu" id="fCB-Td-zkF"/>
                                             <outlet property="title" destination="Dej-Rp-7vf" id="ET5-6q-6vC"/>
+                                            <segue destination="F9n-8T-msy" kind="show" id="w92-kY-jeO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -90,6 +91,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140" y="134"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="WiE-Ba-f3e">
+            <objects>
+                <viewController id="F9n-8T-msy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xmn-0J-cuf"/>
+                        <viewControllerLayoutGuide type="bottom" id="WzP-nD-4c5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ewh-mj-mGM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="htJ-ld-TkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="791" y="134"/>
         </scene>
     </scenes>
 </document>
