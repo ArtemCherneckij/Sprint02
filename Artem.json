@@ -7,16 +7,16 @@
     {
         "genus": "Musa",
         "title": "Banana",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/200px-Red_Apple.jpg"
+        "image": "http://edaplus.info/food_pictures/banana.jpg"
     },
     {
         "genus": "Citrus",
         "title": "Orange",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/200px-Red_Apple.jpg"
+        "image": "http://www.calorizator.ru/sites/default/files/imagecache/product_512/product/orange.jpg"
     },
     {
         "genus": "Pyrus",
         "title": "Pear",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/200px-Red_Apple.jpg"
+        "image": "http://oblepiha.com/uploads/posts/2011-01/1296531912_003.jpg"
     }
 ]
