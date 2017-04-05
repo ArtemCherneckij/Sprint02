@@ -1,18 +1,22 @@
 [
     {
         "genus": "Malus",
-        "title": "Apple"
+        "title": "Apple",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/200px-Red_Apple.jpg"
     },
     {
         "genus": "Musa",
-        "title": "Banana"
+        "title": "Banana",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/200px-Red_Apple.jpg"
     },
     {
         "genus": "Citrus",
-        "title": "Orange"
+        "title": "Orange",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/200px-Red_Apple.jpg"
     },
     {
         "genus": "Pyrus",
-        "title": "Pear"
+        "title": "Pear",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/200px-Red_Apple.jpg"
     }
 ]
